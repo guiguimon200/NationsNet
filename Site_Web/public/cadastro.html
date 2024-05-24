@@ -15,7 +15,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
-<body onload="listar()">
+<body>
+  <!-- onload="listar()" -->
   <!--header inicio-->
   <div class="header">
     <div class="container">
@@ -55,15 +56,19 @@
                          Para inserir mais um campo, copie uma das inputs abaixo.
                          Assim que inserir vá para o script abaixo.
                      -->
-          <div class="campo">
+          <!-- <div class="campo">
             <span>Empresa:</span>
             <select name="empresas" id="listaEmpresas">
               <option selected>Selecione uma empresa</option>
             </select>
-          </div>
+          </div> -->
           <div class="campo">
             <span>Nome:</span>
             <input id="nome_input" type="text" placeholder="Seu nome" />
+          </div>
+          <div class="campo">
+            <span>Telefone Celular:</span>
+            <input id="telefone_input" type="text" placeholder="11903473433" />
           </div>
           <div class="campo">
             <span>E-mail:</span>
@@ -104,19 +109,28 @@
   function cadastrar() {
     aguardar();
 
+    var telefone = telefone_input.value;
+
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
+    var dddVar = telefone.substr(0,2);
+    var prefixoVar = telefone.substr(2,5);
+    var sufixoVar = telefone.substr(6,4);
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var empresaVar = listaEmpresas.value
+
+    // COMEÇO DAS VALIDAÇÕES //
+
     if (
       nomeVar == "" ||
+      dddVar == "" ||
+      prefixoVar == "" ||
+      sufixoVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      empresaVar == ""
+      confirmacaoSenhaVar == "" 
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -128,6 +142,9 @@
       setInterval(sumirMensagem, 5000);
     }
 
+    // FIM DAS VALIDAÇÕES //
+
+
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -138,9 +155,11 @@
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
+        dddServer: dddVar,
+        prefixoServer: prefixoVar,
+        sufixoServer: sufixoVar,
         emailServer: emailVar,
-        senhaServer: senhaVar,
-        empresaServer: empresaVar
+        senhaServer: senhaVar
       }),
     })
       .then(function (resposta) {
@@ -170,21 +189,21 @@
     return false;
   }
 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
+  // function listar() {
+  //   fetch("/empresas/listar", {
+  //     method: "GET",
+  //   })
+  //     .then(function (resposta) {
+  //       resposta.json().then((empresas) => {
+  //         empresas.forEach((empresa) => {
+  //           listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
+  //         });
+  //       });
+  //     })
+  //     .catch(function (resposta) {
+  //       console.log(`#ERRO: ${resposta}`);
+  //     });
+  // }
 
   function sumirMensagem() {
     cardErro.style.display = "none";

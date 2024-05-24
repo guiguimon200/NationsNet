@@ -39,3 +39,5 @@ create table pergunta (
 
 	foreign key (fkPerguntaQz) references quiz (idQuiz)
 );
+
+select * from usuario;
