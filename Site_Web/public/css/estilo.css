@@ -8,7 +8,7 @@ body {
 }
 
 :root {
-  --tamanho-header: 80px;
+  --tamanho-header: 10vh;
   --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
@@ -23,18 +23,26 @@ body {
 
 .header {
   height: var(--tamanho-header);
-  border-bottom: 2px solid #32b9cd;
+  /* border-bottom: 2px solid #32b9cd; */
+  background-color: #E8E4E3;
+}
+
+.logo img {
+  height: 70px;
 }
 
 .header .container {
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  
 }
 
 .header a {
   text-decoration: none;
-  color: #e3b062;
+  /* color: #e3b062; */
+  font-size: 20px;
+  color: #5D473A;
 }
 
 .agora {
@@ -47,14 +55,15 @@ body {
   align-items: center;
   justify-content: space-between;
   list-style: none;
-  color: #e3b062;
+  color: #5D473A;
+  /* color: #e3b062; */
 }
 
-.titulo {
+/* .titulo {
   color: #32b9cd;
   width: fit-content;
   font-weight: 500;
-}
+} */
 
 .header h1 {
   margin: 0;
