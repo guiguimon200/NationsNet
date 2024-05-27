@@ -29,6 +29,7 @@ body {
 
 .logo img {
   height: 70px;
+  align-items: center;
 }
 
 .header .container {
@@ -130,21 +131,44 @@ body {
 /* FOOTER */
 
 .footer {
-  background-color: #32b9cd;
-  height: 150px;
-  color: #fff;
+  background-color: #E8E4E3;
+  height: 10vh;
+  color: #5D473A;
   display: flex;
+  flex-direction: column;
   font-size: 15px;
+  padding-bottom: 5px;
 }
 
 .footer .container {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
 }
 
-.footer .container .version {
-  font-size: 12px;
+.footer .container .ftx {
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
 }
+
+#copyright {
+  margin-top: 15px;
+  
+}
+
+.footerrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  gap: 15px;
+  
+}
+/* .ftx {
+  font-size: 15px;
+} */
 
 /* LOGIN */
 
