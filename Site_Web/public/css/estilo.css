@@ -100,10 +100,30 @@ body {
   font-weight: 800;
 }
 
+.acate {
+  display: flex;
+  background: linear-gradient(#ede4e4, #e9e4e2);
+  font-size: 40px;
+  color: black;
+  opacity: 70%;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.div_paragrafo {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  /* width: 580px;
+  height: 150px;
+  margin-left: 10px; */
+  /* background-color: chartreuse; */
+}
+
 /* MISSÃO VISÃO VALORES */
 
 .social {
-  background-color: #e5e5e5;
+  background-color: #CFB8A9;
   display: flex;
 }
 
@@ -112,7 +132,8 @@ body {
 }
 
 .box img {
-  width: 170px;
+  width: 30vw;
+  height: 32vh;
 }
 
 .social .container .boxes {
@@ -126,10 +147,19 @@ body {
   text-align: center;
 }
 
-.box {
+.box1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 20px;
+}
+
+.box2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20px;
+  margin-left: 8px;
 }
 
 /* FOOTER */
@@ -178,8 +208,10 @@ body {
 
 .login {
   height: var(--tamanho-login);
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+  background-image: url('../assets/Bandeiras2.png');
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .login .container {
@@ -385,8 +417,10 @@ input {
   height: 48px;
   animation-name: bell;
   animation-duration: 4s;
-  background-image: url('https://cdn-icons-png.flaticon.com/512/1157/1157000.png');
+  background-image: url('../assets/MapChartMap.png' );
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   animation-iteration-count: infinite;
 }
 
