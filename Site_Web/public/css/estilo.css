@@ -75,8 +75,12 @@ body {
 .banner {
   height: var(--tamanho-banner);
   color: white;
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+/*  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png'); */
+  background-image: url('../assets/MapChartMap.png');
   background-size: cover;
+  /* background-size: 1100px; */
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .banner .container {

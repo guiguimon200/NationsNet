@@ -96,8 +96,14 @@
   <!--footer inicio-->
   <div class="footer">
     <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-      <span class="version">v1.0.0</span>
+      <div class="footerrow">
+        <h3 class="ftx">Rua Haddock Lobo, 595 São Paulo - SP</h3>
+        <h3 class="ftx">|</h3>
+        <h3 class="ftx">www.nationsnet.com.br <br> (11) 99498-8875</h3>
+        <h3 class="ftx">|</h3>
+        <h3 class="ftx">Privacy Policy & Terms</h3>
+      </div>
+      <h3 class="ftx" id="copyright">Copyright © 2024 NationsNet</h3>
     </div>
   </div>
   <!--footer fim-->
@@ -114,9 +120,9 @@
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
-    var dddVar = telefone.substr(0,2);
-    var prefixoVar = telefone.substr(2,5);
-    var sufixoVar = telefone.substr(6,4);
+    var dddVar = telefone.substr(0, 2);
+    var prefixoVar = telefone.substr(2, 5);
+    var sufixoVar = telefone.substr(6, 4);
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
@@ -130,7 +136,7 @@
       sufixoVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" 
+      confirmacaoSenhaVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
