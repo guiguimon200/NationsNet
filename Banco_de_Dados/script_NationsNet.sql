@@ -9,7 +9,7 @@ create table usuario (
 	ddd char(2),/*substr(0,2) */
 	prefixo char(5), /*substr(2,5) */
 	sufixo char(4), /*substr(6,4) */
-	email varchar(50), 
+	email varchar(200), 
 	senha varchar(20)
 );
 

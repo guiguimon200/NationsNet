@@ -68,7 +68,7 @@
           </div>
           <div class="campo">
             <span>Telefone Celular:</span>
-            <input id="telefone_input" type="text" placeholder="11903473433" />
+            <input id="telefone_input" type="number" placeholder="11903473433" />
           </div>
           <div class="campo">
             <span>E-mail:</span>
@@ -115,25 +115,23 @@
   function cadastrar() {
     aguardar();
 
-    var telefone = telefone_input.value;
+    var telefoneVar = telefone_input.value;
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
-    var dddVar = telefone.substr(0, 2);
-    var prefixoVar = telefone.substr(2, 5);
-    var sufixoVar = telefone.substr(6, 4);
+    var dddVar = telefoneVar.substr(0, 2);
+    var prefixoVar = telefoneVar.substr(2, 5);
+    var sufixoVar = telefoneVar.substr(6, 4);
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
     // COMEÇO DAS VALIDAÇÕES //
-
+    
     if (
       nomeVar == "" ||
-      dddVar == "" ||
-      prefixoVar == "" ||
-      sufixoVar == "" ||
+      telefoneVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == ""
@@ -141,6 +139,90 @@
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "(Mensagem de erro para todos os campos em branco)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }  
+
+    // VALIDAÇÕES NOME //
+    let nomeTrim = nomeVar.trim(); 
+    let nomeTamanho = nomeVar.length;
+    let nomeMaiusculo = nomeTrim[0].toLowerCase();
+
+    // SE O NOME SEM OS ESPACOS FOR IGUAL A VAZIO, ELE NÃO PASSA
+    if (nomeTrim == '') {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Preencha o campo Nome)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // SE O TAMANHO DO NOME FOR MENOR QUE 3 OU MAIOR QUE 50, ELE NÃO PASSA
+    if (nomeTamanho > 50 || nomeTamanho < 3) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(O nome só pode ter no maximo 50 caracteres e no minimo 3 caracteres)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // SE A LETRA DO NOME NA POSIÇÃO 0/1 NÃO FOR MAIUSCULA, ELE NÃO PASSA
+    if (nomeTrim[0] == nomeMaiusculo) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(A primeira letra do nome precisa ser maiuscula)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // VALIDAÇÕES TELEFONE//
+    let telefoneTamanho = telefoneVar.length;
+    
+    // SE O TELEFONE TIVER UM TAMANHO DIFERENTE DE 11, ELE NÃO PASSA
+    if (telefoneTamanho != 11) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(O telefone precisa ter 11 caracteres)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // VALIDAÇÕES EMAIL //
+    let emailTrim = emailVar.trim();
+    let emailTamanho = emailVar.length;
+    let emailCaracter
+
+    // SE O EMAIL SEM OS ESPACOS FOR IGUAL A VAZIO, ELE NÃO PASSA
+    if (emailTrim == '') {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Preencha o campo Email)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    if (emailTamanho < 10 || emailTamanho > 200) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(O email precisa ter no minimo 10 caracteres)";
 
       finalizarAguardar();
       return false;
