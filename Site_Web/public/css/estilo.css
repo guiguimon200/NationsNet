@@ -374,14 +374,20 @@ input {
 /* SIMULADOR */
 
 .simulador {
-  color: white;
+  color: #5D473A;
+  background-color: #5D473A;
 }
 
 .simulador .container {
   flex-direction: column;
   overflow: scroll; 
   height: var(--tamanho-simulador);
+  background-color: rgb(230, 220, 210);
 }
+
+/* #E8E4E3 */
+/* #CFB8A9 */
+/* #5D473A */
 
 /* ALERTA */
 

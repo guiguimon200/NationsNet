@@ -72,7 +72,7 @@
           </div>
           <div class="campo">
             <span>E-mail:</span>
-            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
+            <input id="email_input" type="text" placeholder="meuemail@provedor.com"style="text-transform: lowercase;" />
           </div>
           <div class="campo">
             <span>Senha:</span>
@@ -167,7 +167,7 @@
     if (nomeTamanho > 50 || nomeTamanho < 3) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(O nome só pode ter no maximo 50 caracteres e no minimo 3 caracteres)";
+        "(O nome precisa ter no minimo 3 caracteres, e só pode ter no maximo 50 caracteres)";
 
       finalizarAguardar();
       return false;
@@ -205,7 +205,10 @@
     // VALIDAÇÕES EMAIL //
     let emailTrim = emailVar.trim();
     let emailTamanho = emailVar.length;
-    let emailCaracter
+    let emailDominioGmail = emailVar.indexOf('@gmail.com'); 
+    let emailDominioHotmail = emailVar.indexOf('@hotmail.com'); 
+    let emailDominioSptech = emailVar.indexOf('@sptech.school'); 
+    
 
     // SE O EMAIL SEM OS ESPACOS FOR IGUAL A VAZIO, ELE NÃO PASSA
     if (emailTrim == '') {
@@ -219,16 +222,103 @@
       setInterval(sumirMensagem, 5000);
     }
 
-    if (emailTamanho < 10 || emailTamanho > 200) {
+    // SE O EMAIL TIVER UM TAMANHO MENOR QUE 10 CARACTERES OU MAIOR QUE 200, ELE NÃO PASSA
+    if (emailTamanho < 11 || emailTamanho > 200) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(O email precisa ter no minimo 10 caracteres)";
+        "(O email precisa ter no minimo 11 caracteres)";
 
       finalizarAguardar();
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
     }
+
+    // SE O EMAIL NÃO TIVER O DOMINIO, ELE NÃO PASSA
+    if (emailDominioGmail == -1 && emailDominioHotmail == -1 && emailDominioSptech == -1) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Seu email não contem um dominio valido)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // SE O DOMINIO NÃO FOR O FINAL DO EMAIL. ELE NÃO PASSA
+    if (!emailVar.endsWith('@gmail.com') && !emailVar.endsWith('@hotmail.com') && !emailVar.endsWith('@sptech.school')) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(O dominio do email precisa estar no final)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // VALIDAÇÕES SENHA //
+    let senhaTamanho = senhaVar.length;
+    let senhaNumero = senhaVar.indexOf(0);
+    
+
+    // SE O TAMANHO DA SENHA FOR MENOR QUE 6 OU MAIOR QUE 20, ELE NÃO PASSA
+    if (senhaTamanho < 6 || senhaTamanho > 45) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Senha precisa ter no minimo 6 caracteres e no maximo 45)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // SE A SENHA NÃO TIVER PELO MENOS 2 NUMEROS E 1 CARACTER ESPECIAL, ELE NÃO PASSA 
+    let numero = 0;
+    let caracter = 0;
+    for (let contador = 0; contador < senhaTamanho; contador += 1) {
+        // Verifica se o caractere é um número
+        if (senhaVar[contador] >= '0' && senhaVar[contador] <= '9') {
+            numero += 1;
+        }
+
+        if (senhaVar[contador] == '@' || senhaVar[contador] == '#' || senhaVar[contador] == '&') {
+          caracter += 1;
+        }
+    }
+
+    if (numero < 2) {
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "(Senha precisa ter no minimo 2 numeros)";
+        finalizarAguardar();
+        return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    if (caracter < 1) {
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "(Senha precisa ter pelo menos 1 caracter especial como @, &,#)";
+        finalizarAguardar();
+        return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    //SE A CONFIRMAÇÃO DE SENHA NAO FOR IGUAL A SENHA, ELE NÃO PASSA
+    if (senhaVar != confirmacaoSenhaVar) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Senhas não são iguais)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
 
     // FIM DAS VALIDAÇÕES //
 
