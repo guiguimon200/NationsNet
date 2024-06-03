@@ -15,8 +15,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 
-<body>
-
+<body onload="listar()">
+<!--  -->
     <!--header inicio-->
     <div class="header">
         <div class="container">
@@ -45,9 +45,18 @@
    <!-- simulador inicio -->
    <div class="simulador">
     <div class="container">
-        <h2>Simulador</h2>
+        <div class="title">
+            <h2>Veja Informações sobre os países</h2>
+        </div>
+        <div class="paragraf">
+            <h3> Pesquise por algum país</h3> 
+            <select name="paises" id="listaPaises">
+                <option selected>Selecione algum País</option>
+            </select>
+            <button onclick="buscarPais()">Pesquisar País</button>
+        </div>
         <div id="country-info">
-            <!-- Aqui as informações do país serão inseridas -->
+            <div class="exibirBandeira"></div>
         </div>
     </div>
 </div>
@@ -74,29 +83,29 @@
 </html>
 
 <script>
-    // Função para buscar informações de um país específico
-async function fetchCountryData(countryCode) {
-    const url = `https://servicodados.ibge.gov.br/api/v1/paises/${countryCode}`;
-    
-    try {
-        const response = await fetch(url);
 
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
+    function buscarPais() {
+        let paisVar = listaPaises.value;
+
+        if (paisVar == "") {
+            alert('Selecione')
         }
-
-        const data = await response.json();
-        console.log(data);
-        
-        // Manipule os dados conforme necessário
-        // Exemplo: Mostrar o nome do país
-        const countryName = data[0]?.nome?.abreviado;
-        console.log('Nome do país:', countryName);
-    } catch (error) {
-        console.error('Fetch error:', error);
     }
-}
-
-// Exemplo de uso da função
-fetchCountryData('BRA');  // Substitua 'BRA' pelo código do país que deseja consultar
+    
+    function listar() {
+    fetch("/paises/listarP", {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((paises) => {
+          paises.forEach((pais) => {
+            listaPaises.innerHTML += `<option value='${pais.idPais}'>${pais.nomePais}</option>`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
 </script>
+

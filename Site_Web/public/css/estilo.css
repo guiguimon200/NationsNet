@@ -208,7 +208,7 @@ body {
 
 .login {
   height: var(--tamanho-login);
-  background-image: url('../assets/Bandeiras2.png');
+  background-image: url('../assets/Bandeiras3.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -217,17 +217,18 @@ body {
 .login .container {
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 102%;
 }
 
 .card {
-  width: 50%;
-  background-color: #e5e5e5;
+  width: 44%;
+  background-color: #d5d5d5;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  color: palevioletred;
+  /* color: palevioletred; */
+  color: #4f3c32;
   flex-direction: column;
   height: fit-content;
   padding: 20px 0;
@@ -241,7 +242,7 @@ body {
 .formulario {
   display: flex;
   height: 90%;
-  width: 80%;
+  width: 70%;
   justify-content: space-around;
   flex-direction: column;
 }
@@ -252,13 +253,13 @@ body {
 }
 
 .formulario input {
-  border: 2px solid #32b9cd;
+  border: 2px solid #9b73ff;
   text-align: center;
   border-radius: 10px;
   margin: 0;
 }
 
-.formulario select {
+/* .formulario select {
   border: 2px solid #32b9cd;
   background-color: white;
   color: gray;
@@ -266,7 +267,7 @@ body {
   text-align: center;
   border-radius: 10px;
   margin: 0;
-}
+} */
 
 .campo {
   display: flex;
@@ -283,7 +284,8 @@ body {
   font-weight: 600;
   font-size: 18px;
   color: #fff;
-  background-color: #e6005a;
+  /* background-color: #e6005a; */
+  background-color: #5D473A;
   width: 120px;
   height: 30px;
   align-self: center;
@@ -313,14 +315,15 @@ body {
 
 .card_erro {
   display: none;
-  background-color: #fff;
-  color: black;
+  background-color: #ffffff;
+  color: #423229;
   width: 230px;
   position: fixed;
   border-radius: 4px;
-  border: #e6005a 3px solid;
+  /* border: #e6005a 3px solid; */
+  border: #9b73ff 2px solid;
   padding: 10px;
-  margin-right: 10%;
+  margin-right: 15%;
 }
 
 .card_erro #mensagem_erro{
@@ -371,7 +374,7 @@ input {
   width: 50px;
 }
 
-/* SIMULADOR */
+/* PAISES */
 
 .simulador {
   color: #5D473A;
@@ -379,10 +382,41 @@ input {
 }
 
 .simulador .container {
+  display: flex;
   flex-direction: column;
   overflow: scroll; 
   height: var(--tamanho-simulador);
   background-color: rgb(230, 220, 210);
+}
+
+.container .title {
+  display: flex;
+  justify-content: center;
+}
+
+.simulador select {
+  border: 2px solid #9b73ff;
+  background-color: white;
+  color: gray;
+  height: 35px;
+  text-align: center;
+  border-radius: 5px;
+  margin: 0;
+}
+
+.simulador button {
+  border: 2px solid #9b73ff;
+  background-color: white;
+  color: gray;
+  height: 35px;
+  border-radius: 5px; 
+}
+
+.paragraf {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
 }
 
 /* #E8E4E3 */

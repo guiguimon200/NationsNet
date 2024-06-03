@@ -44,7 +44,7 @@ body {
 
 .dash-right .avisos .div-form textarea {
   width: 95%;
-  border: 3px solid #e6005a;
+  border: 3px solid #5D473A;
   background-color: white;
   border-radius: 5px;
 }
@@ -116,11 +116,11 @@ body {
 }
 
 .dash {
-  width: 80%;
+  width: 82%;
   position: relative;
   top: 0;
-  left: 20%;
-  background-color: #161618;
+  left: 18%;
+  background-color: #4e4ebd;
   height: 100vh;
   overflow: auto;
 }
@@ -286,7 +286,7 @@ body {
   font-weight: 600;
   font-size: 18px;
   padding: 10px 15px;
-  color: #e6005a;
+  color: #5D473A;
   background-color: white;
   margin: 5px;
   border-radius: 3px;
@@ -294,13 +294,13 @@ body {
 }
 
 .btn-pink {
-  color: white;
-  background-color: #e6005a;
+  color: #5D473A;
+  background-color: #E8E4E3;
 }
 
 .btn-white {
-  color: #e6005a;
-  background-color: white;
+  color: #E8E4E3;
+  background-color: #5D473A;
 
 }
 
@@ -334,7 +334,7 @@ canvas {
 
 .header-left a {
   text-decoration: none;
-  color: white;
+  color: #5D473A;
 }
 
 .header-left {
@@ -343,20 +343,24 @@ canvas {
   left: 0;
   z-index: 999;
   height: 100vh;
-  width: 20%;
+  width: 18%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border-right: 3px solid #32b9cd;
-  background-color: #212124;
+  border-right: 3px solid #5D473A;
+  background-color: #CFB8A9;
 }
+
+/* #5D473A */
+/* #E8E4E3 */
+/* #CFB8A9 */
 
 .dash-right {
   display: flex;
   width: 70%;
   height: fit-content;
-  background-color: #161618;
+  background-color: #23c1a1;
   position: relative;
   top: 0;
   left: 25%;
@@ -365,7 +369,7 @@ canvas {
 }
 
 .header-left h1 {
-  color: #32b9cd;
+  color: #5D473A;
 }
 
 .hello {
@@ -375,7 +379,7 @@ canvas {
 }
 
 .hello h3 {
-  color: #e3b062;
+  color: #5D473A;
   font-weight: 300;
   font-size: 1.2rem;
 }
@@ -387,7 +391,7 @@ canvas {
 .btn-nav {
   width: 40%;
   color: white;
-  background-color: #e6005a;
+  background-color: #5D473A;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
@@ -396,14 +400,14 @@ canvas {
 .btn-nav-white {
   width: 40%;
   background-color: white;
-  border: 3px solid #e6005a;
+  border: 3px solid #5D473A;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
 }
 
 .btn-nav-white h3 {
-  color: #e6005a;
+  color: #5D473A;
   padding: 0;
   margin: 0;
 }
@@ -418,11 +422,15 @@ canvas {
   margin: 0;
   padding: 0;
   width: 20%;
-  background-color: #32b9cd;
+  background-color: #5D473A;
   color: white;
   border-radius: 10px;
   text-align: center;
   padding: 10px 15px;
   margin-bottom: 100px;
   cursor: pointer;
+}
+
+.imgLogo {
+  width: 100%;
 }
