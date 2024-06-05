@@ -2,40 +2,39 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/Nations.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Tempo Real</title>
+    <title>NationsNet Quiz</title>
 
 
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
 
     <script src="../js/sessao.js"></script>
-    <script src="../js/alerta.js"></script>
+    <!-- <script src="../js/alerta.js"></script> -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), exibirAquarios(),  atualizacaoPeriodica()">
-
+<body >
+<!-- onload="validarSessao(), exibirAquarios(),  atualizacaoPeriodica()" -->
     <div class="janela">
 
         <div class="header-left dash-header">
-
-           
             <img class="imgLogo" src="/assets/NationsNet.png" alt="">
-           
 
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
 
             <div class="btn-nav">
-                <h3>Quiz</h3>
+                <a id="btnh3" href="./quiz.html">
+                    <h3>Quiz</h3>
+                </a>
             </div>
 
             <div class="btn-nav-white">
@@ -46,7 +45,7 @@
 
             <div class="btn-nav-white">
                 <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
+                    <h3>Anotações</h3>
                 </a>
             </div>
 
@@ -56,34 +55,113 @@
 
         </div>
 
-        <div class="dash">   
+        <div class="inicioQuiz" id="inicio">
+            <div class="quiztitulo">
+                <h2>Quiz das Bandeiras</h2>
+            </div>
+            <div class="jogar">
+                <h3>Clique no botão para jogar o quiz</h3>
+                <button onclick="iniciarQuiz()" class="btt">Iniciar o Quiz!</button>
+            </div>
 
         </div>
 
+        <!-- Conteúdo do Quiz -->
+       <div class="body">
+        <h2>Quiz Bandeiras</h2>
+        <div class="conteudos">
+        <main>
+          <div class="content">
+            <span class="spnQtd"></span>
+            <span class="question"></span>
+            <div class="answers"></div>
+          </div>
+          <div class="finish">
+            <span></span>
+            <div class="ponto"></div>
+            <button onclick="reiniciar()">Reiniciar</button>
+          </div>
+        </main>
+        <div class="bandeira">
+            <div class="image"></div>
+        </div>
+        </div> 
+       </div>
+        
     </div>
 
+    <script src="scriptquiz.js" type="module" ></script>
 </body>
+
+</html>
 
 <script>
 
-    function exibirAquarios() {
-        JSON.parse(sessionStorage.AQUARIOS).forEach(item => {
-            document.getElementById("cardAquarios").innerHTML += `
-                    <div class="card-aquario">
-                        <div class="title-aquario">
-                            <h1>${item.descricao}</h1>
-                        </div>
-                        <div class="desc-aquario">
-                        <div class="temperatura">
-                            <p id="temp_aquario_${item.id}">-°C</p>
-                        </div>
-                        <div class="cor-alerta" id="card_${item.id}"></div>
-                    </div>
-                    </div>
-                    `
-        });
+    function iniciarQuiz() {
+        document.getElementById('inicio').style.display = 'none';
     }
 
+    function reiniciar() {
+        totalPontos = 0;
+    }
+ 
+    
 </script>
 
-</html>
+<!-- function exibirAquarios() {
+    JSON.parse(sessionStorage.AQUARIOS).forEach(item => {
+        document.getElementById("cardAquarios").innerHTML += `
+                <div class="card-aquario">
+                    <div class="title-aquario">
+                        <h1>${item.descricao}</h1>
+                    </div>
+                    <div class="desc-aquario">
+                    <div class="temperatura">
+                        <p id="temp_aquario_${item.id}">-°C</p>
+                    </div>
+                    <div class="cor-alerta" id="card_${item.id}"></div>
+                </div>
+                </div>
+                `
+    });
+} -->
+
+
+<!-- <div class="dash" id="dash">
+
+            <div class="kpis">
+                <div class="caixa">
+
+                </div>
+                <div class="caixa">
+
+                </div>
+            </div>
+
+            <div class="conteudo">
+                <div class="box_pergunta">
+                    <div class="pergunta">
+                        <h2>Pergunta 1:</h2>
+                        <span class="spnQtd"></span>
+                        <p>Essa bandeira pertence a qual pais?</p>
+                    </div>
+                    <div class="alternativas">
+                        <div class="altAB">
+                            <button onclick="validarResposta('a')" class="box_A">adghbf</button>
+                            <button onclick="validarResposta('b')" class="box_B">b</button>
+                        </div>
+
+                        <div class="altCD">
+                            <button onclick="validarResposta('c')" class="box_C">c</button>
+                            <button onclick="validarResposta('d')" class="box_D">d</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box_imagem">
+                    <div class="imagemQuiz">
+
+                    </div>
+                </div>
+            </div>
+
+        </div> -->
