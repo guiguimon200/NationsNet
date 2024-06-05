@@ -47,9 +47,9 @@
             </div>
 
             <div class="btn-nav">
-
-                <h3>Gráficos</h3>
-
+                <a id="btnh3" href="./dashboard.html">
+                    <h3>Gráficos</h3>
+                </a>
             </div>
 
             <div class="btn-nav-white">
@@ -63,12 +63,13 @@
             </div>
 
         </div>
+        
 
-        <div class="dash-right">
+        <div class="dashboardCard">
+            <h2>Historico de pontos ganhos em cada partida </h2>
             <div id="alerta">
             </div>
-
-            <div style="width: 800px; height: 400px;">
+            <div  class="chartGrafico">
                 <canvas id="myChart"></canvas>
             </div>
         </div>
@@ -115,18 +116,22 @@
                 datasets: [{
                     data: listaPontuacao,
                     borderWidth: 1,
-                    label: 'Pontuações'
+                    label: 'Atualizar Grafico',
+                    backgroundColor: ['#5D473A'],
                 }]
             },
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        max: 25
                     }
                 }
             }
         });
 }
+
+
 
 </script>
 

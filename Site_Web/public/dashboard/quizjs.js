@@ -98,7 +98,17 @@ export default [
         image: '<img src="../assets/imgBandeiras/EE.png" alt="Bandeira da Estonia">',
         pontuacao: 2,
     },
-
+    {
+        question: "Essa bandeira pertence a qual pais?",
+        answers: [
+            {option: "", correct: false},
+            {option: "", correct: false},
+            {option: "", correct: false},
+            {option: "", correct: true},
+        ],
+        image: '<img src="../assets/imgBandeiras/PL.png" alt="Bandeira da Polonia">',
+        pontuacao: 2,
+    },
     {
         question: "Essa bandeira pertence a qual pais?",
         answers: [
@@ -110,4 +120,15 @@ export default [
         image: '<img src="../assets/imgBandeiras/PL.png" alt="Bandeira da Polonia">',
         pontuacao: 5,
     },
+    {
+        question: "Essa bandeira pertence a qual pais?",
+        answers: [
+            {option: "", correct: false},
+            {option: "", correct: false},
+            {option: "", correct: false},
+            {option: "", correct: true},
+        ],
+        image: '<img src="../assets/imgBandeiras/PL.png" alt="Bandeira da Polonia">',
+        pontuacao: 5,
+    }
 ];
