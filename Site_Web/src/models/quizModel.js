@@ -7,12 +7,37 @@ function inserirPontuacao(totalPontos, idUsuario) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO tentativa (fkUsuario, fkQuiz, dataTentativa, pontuacao) VALUES ('${idUsuario}', 1 , now, '${totalPontos}');
+        INSERT INTO tentativa (fkUsuario, fkQuiz, dataTentativa, pontuacao) VALUES ('${idUsuario}', 1 , now(), '${totalPontos}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
+function buscarUltimasMedidas(idUsuario) {
+
+    var instrucaoSql = `SELECT 
+                    pontuacao
+                    FROM usuario join tentativa on fkUsuario = idUsuario
+                    WHERE fkUsuario = ${idUsuario}`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarMedidasEmTempoReal(idUsuario) {
+
+    var instrucaoSql = `SELECT 
+    pontuacao
+    FROM usuario join tentativa on fkUsuario = idUsuario
+    WHERE fkUsuario = ${idUsuario}
+                    ORDER BY id DESC LIMIT 1`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
-    inserirPontuacao
+    inserirPontuacao,
+    buscarUltimasMedidas,
+    buscarMedidasEmTempoReal
 };

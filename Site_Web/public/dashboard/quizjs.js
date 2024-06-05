@@ -54,4 +54,60 @@ export default [
         image: '<img src="../assets/imgBandeiras/UK.png" alt="Bandeira do Reino Unido">',
         pontuacao: 1,
     },
+    {
+        question: "Essa bandeira pertence a qual pais?",
+        answers: [
+            {option: "Colombia", correct: true},
+            {option: "Equador", correct: false},
+            {option: "Venezuela", correct: false},
+            {option: "Peru", correct: false},
+        ],
+        image: '<img src="../assets/imgBandeiras/CO.png" alt="Bandeira da Colombia">',
+        pontuacao: 2,
+    },
+    {
+        question: "Essa bandeira pertence a qual pais?",
+        answers: [
+            {option: "França", correct: false},
+            {option: "Russia", correct: false},
+            {option: "Tailandia", correct: true},
+            {option: "Laos", correct: false},
+        ],
+        image: '<img src="../assets/imgBandeiras/TH.png" alt="Bandeira da Tailandia">',
+        pontuacao: 2,
+    },
+    {
+        question: "Essa bandeira pertence a qual pais?",
+        answers: [
+            {option: "Camboja", correct: false},
+            {option: "Bangladesh", correct: true},
+            {option: "Tailandia", correct: false},
+            {option: "Laos", correct: false},
+        ],
+        image: '<img src="../assets/imgBandeiras/BD.png" alt="Bandeira de Bangladesh">',
+        pontuacao: 2,
+    },
+    {
+        question: "Essa bandeira pertence a qual pais?",
+        answers: [
+            {option: "Estonia", correct: true},
+            {option: "Letonia", correct: false},
+            {option: "Lituania", correct: false},
+            {option: "Laos", correct: false},
+        ],
+        image: '<img src="../assets/imgBandeiras/EE.png" alt="Bandeira da Estonia">',
+        pontuacao: 2,
+    },
+
+    {
+        question: "Essa bandeira pertence a qual pais?",
+        answers: [
+            {option: "Monaco", correct: false},
+            {option: "Indonesia", correct: false},
+            {option: "Malta", correct: false},
+            {option: "Polonia", correct: true},
+        ],
+        image: '<img src="../assets/imgBandeiras/PL.png" alt="Bandeira da Polonia">',
+        pontuacao: 5,
+    },
 ];

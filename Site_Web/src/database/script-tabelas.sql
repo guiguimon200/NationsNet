@@ -58,7 +58,7 @@ comandos para mysql server
 -- insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
 -- insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
 
--- drop database nationsnet;
+drop database nationsnet;
 create database nationsnet;
 
 use nationsnet;
@@ -82,23 +82,24 @@ create table quiz (
 create table tentativa (
 	fkUsuario int,
 	fkQuiz int,
-	idTentativa int,
+	idTentativa int auto_increment,
 	dataTentativa datetime,
 	pontuacao int,
 
 	primary key (fkUsuario, fkQuiz, idTentativa),
+    unique (idTentativa),
 	foreign key (fkUsuario) references usuario (idUsuario),
 	foreign key (fkQuiz) references quiz (idQuiz)
 );
 
-create table pergunta (
+/*create table pergunta (
 	idPergunta int primary key auto_increment,
 	pergunta varchar(200),
 	resposta varchar(45),
 	fkPerguntaQz int,
 
 	foreign key (fkPerguntaQz) references quiz (idQuiz)
-);
+);*/
 
 create table pais (
 idPais int primary key auto_increment,
@@ -119,6 +120,9 @@ fkPais int,
 
 constraint fkCaracPais foreign key (fkPais) references pais(idPais) 
 );
+
+insert into quiz values 
+(default, 'Quiz Bandeiras', 'Bandeiras');
 
 insert into pais values 
 (default, 'Afeganistão'),
@@ -316,4 +320,4 @@ insert into pais values
 (default, 'Zâmbia'),
 (default, 'Zimbábue');
 
-select * from usuario;
+select * from usuario join tentativa on fkUsuario = idUsuario;
