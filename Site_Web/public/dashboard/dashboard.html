@@ -63,13 +63,23 @@
             </div>
 
         </div>
-        
+
 
         <div class="dashboardCard">
+            <div class="KPIS">
+                <div class="kpiTotal">
+                    <span><b>Total de Pontos</b></span>
+                    <div class="totalPontos"></div>
+                </div>
+                <div class="kpiMaxima">
+                    <span><b>Pontuação Maxima</b></span>
+                    <div class="pontoMaximo"></div>
+                </div>
+            </div>
             <h2>Historico de pontos ganhos em cada partida </h2>
             <div id="alerta">
             </div>
-            <div  class="chartGrafico">
+            <div class="chartGrafico">
                 <canvas id="myChart"></canvas>
             </div>
         </div>
@@ -88,6 +98,7 @@
 
     function chamarFuncoes() {
         obterDadosGrafico(idUsuario).then(criarGrafico).catch(error => console.error(error));
+        buscarTotalPontos(idUsuario);
     }
 
     function obterDadosGrafico(idUsuario) {
@@ -122,17 +133,51 @@
             },
             options: {
                 scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    },
                     y: {
-                        beginAtZero: true,
-                        max: 25
+                        grid: {
+                            display: false
+                        },
+                        beginAtZero: true
                     }
                 }
             }
         });
-}
+    }
 
+    function buscarTotalPontos(idUsuario) {
 
+        return fetch(`/quizes/totalPontos/${idUsuario}`, {
+            method: 'GET'
+        }).then(function (resposta) {
+            return resposta.json().then((tentativa) => {
+                 const totalPontos = tentativa.total;
+                document.querySelector('.totalPontos').innerText = totalPontos;
+                console.log('Total de Pontos:', totalPontos);
+                console.log(`Dados: ${tentativa}`)
+                });
+        }) .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
 
+    function buscarPontoMaximo(idUsuario) {
+        return fetch(`/quizes/pontoMaximo/${idUsuario}`, {
+            method: 'GET'
+        }).then(function (resposta) {
+            return resposta.json().then((tentativa) => {
+                const pontoMaximo = tentativa.maxima;
+                document.querySelector('.pontoMaximo').innerText = pontoMaximo;
+                console.log('pontuacao:', pontoMaximo);
+            });
+        }).catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
 </script>
 
 

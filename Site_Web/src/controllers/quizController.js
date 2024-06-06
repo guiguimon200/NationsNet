@@ -52,7 +52,7 @@ function buscarMedidasEmTempoReal(req, res) {
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idUsuario).then(function (resultado) {
+    quizModel.buscarMedidasEmTempoReal(idUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -65,8 +65,45 @@ function buscarMedidasEmTempoReal(req, res) {
     });
 }
 
+function buscarTotalPontos(req, res) {
+
+    var idUsuario = req.params.idUsuario;
+
+    quizModel.buscarTotalPontos(idUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar o total de pontos.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    })
+
+}
+
+function buscarPontoMaximo(req, res) {
+
+    var idUsuario = req.params.idUsuario;
+
+    quizModel.buscarPontoMaximo(idUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado)
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar o total de pontos.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    })
+}
+
 module.exports = {
     inserirPontuacao,
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    buscarTotalPontos,
+    buscarPontoMaximo
 }

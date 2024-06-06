@@ -36,8 +36,28 @@ function buscarMedidasEmTempoReal(idUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function buscarTotalPontos(idUsuario) {
+
+    var instrucaoSql = `SELECT SUM(pontuacao) as total FROM usuario join tentativa 
+    on fkUsuario = idUsuario WHERE fkUsuario = ${idUsuario}`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarPontoMaximo(idUsuario) {
+
+    var instrucaoSql = `SELECT MAX(pontuacao) as maxima FROM usuario join tentativa 
+    on fkUsuario = idUsuario WHERE fkUsuario = ${idUsuario}`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     inserirPontuacao,
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    buscarTotalPontos,
+    buscarPontoMaximo
 };

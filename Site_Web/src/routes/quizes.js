@@ -16,4 +16,12 @@ router.get("/tempo-real/:idUsuario", function (req, res) {
     quizController.buscarMedidasEmTempoReal(req, res);
 });
 
+router.get("/totalPontos/:idUsuario", function (req, res) {
+    quizController.buscarTotalPontos(req, res);
+});
+
+router.get("/pontoMaximo/:idUsuario", function (req, res) {
+    quizController.buscarPontoMaximo(req, res);
+});
+
 module.exports = router;
