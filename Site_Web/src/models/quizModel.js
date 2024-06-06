@@ -13,28 +13,58 @@ function inserirPontuacao(totalPontos, idUsuario) {
     return database.executar(instrucaoSql);
 }
 
-function buscarUltimasMedidas(idUsuario) {
+function buscarUltimasMedidas(idUsuario, limite_linhas) {
 
     var instrucaoSql = `SELECT 
                     pontuacao
                     FROM usuario join tentativa on fkUsuario = idUsuario
-                    WHERE fkUsuario = ${idUsuario}`;
+                    WHERE fkUsuario = ${idUsuario}  
+                    ORDER BY idTentativa DESC LIMIT ${limite_linhas}`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+
+// function buscarUltimasMedidas(idUsuario, limite_Linhas) {
+
+//     var instrucaoSql = `SELECT 
+//                     pontuacao
+//                     FROM usuario join tentativa on fkUsuario = idUsuario
+//                     WHERE fkUsuario = ${idUsuario}  
+//                     ORDER BY idTentativa DESC LIMIT ${limite_Linhas}`;
+
+//     console.log("Executando a instrução SQL: \n" + instrucaoSql);
+//     return database.executar(instrucaoSql);
+// }
+
 
 function buscarMedidasEmTempoReal(idUsuario) {
 
     var instrucaoSql = `SELECT 
-    pontuacao
-    FROM usuario join tentativa on fkUsuario = idUsuario
-    WHERE fkUsuario = ${idUsuario}
-                    ORDER BY id DESC LIMIT 1`;
+        pontuacao
+        FROM usuario join tentativa on fkUsuario = idUsuario
+        WHERE fkUsuario = ${idUsuario}
+        ORDER BY idTentativa DESC LIMIT 1`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+
+// function buscarMedidasEmTempoReal(idUsuario) {
+
+//     var instrucaoSql = `SELECT 
+//     pontuacao
+//     FROM usuario join tentativa on fkUsuario = idUsuario
+//     WHERE fkUsuario = ${idUsuario}
+//                     ORDER BY id DESC LIMIT 1`;
+
+//     console.log("Executando a instrução SQL: \n" + instrucaoSql);
+//     return database.executar(instrucaoSql);
+// }
+
+
+
+
 
 function buscarTotalPontos(idUsuario) {
 

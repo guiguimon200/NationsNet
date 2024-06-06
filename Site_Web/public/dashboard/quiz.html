@@ -49,16 +49,16 @@
             </div>
 
             <div class="btn-nav-white">
-                <a href="">
-                    <h3>Rankin</h3>
+                <a href="./ranking.html">
+                    <h3>Ranking</h3>
                 </a>
             </div>
 
-            <div class="btn-nav-white">
+            <!-- <div class="btn-nav-white">
                 <a href="./mural.html">
                     <h3>Anotações</h3>
                 </a>
-            </div>
+            </div> -->
 
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
@@ -90,7 +90,7 @@
           <div class="finish">
             <span></span>
             <div class="ponto"></div>
-            <button onclick="reiniciar()">Reiniciar</button>
+            <a href="quiz.html"><button onclick="reiniciar()">Reiniciar</button></a>
           </div>
         </main>
         <div class="bandeira">
@@ -107,6 +107,7 @@
 </html>
 
 <script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     function iniciarQuiz() {
         document.getElementById('inicio').style.display = 'none';

@@ -101,13 +101,13 @@ export default [
     {
         question: "Essa bandeira pertence a qual pais?",
         answers: [
-            {option: "", correct: false},
-            {option: "", correct: false},
-            {option: "", correct: false},
-            {option: "", correct: true},
+            {option: "Quirguistão", correct: false},
+            {option: "Tajiquistão", correct: false},
+            {option: "Turcomenistão", correct: true},
+            {option: "Uzbequistão", correct: false},
         ],
-        image: '<img src="../assets/imgBandeiras/PL.png" alt="Bandeira da Polonia">',
-        pontuacao: 2,
+        image: '<img src="../assets/imgBandeiras/TM.png" alt="Bandeira do Turcomenistão">',
+        pontuacao: 5,
     },
     {
         question: "Essa bandeira pertence a qual pais?",
@@ -123,12 +123,56 @@ export default [
     {
         question: "Essa bandeira pertence a qual pais?",
         answers: [
-            {option: "", correct: false},
-            {option: "", correct: false},
-            {option: "", correct: false},
-            {option: "", correct: true},
+            {option: "Ilhas Salomão", correct: false},
+            {option: "Guiné-Bissau", correct: true},
+            {option: "Etiopia", correct: false},
+            {option: "Guiné-Equatorial", correct: false},
         ],
-        image: '<img src="../assets/imgBandeiras/PL.png" alt="Bandeira da Polonia">',
+        image: '<img src="../assets/imgBandeiras/GW.png" alt="Bandeira da Guiné-Bissau">',
+        pontuacao: 5,
+    },
+    {
+        question: "Essa bandeira pertence a qual pais?",
+        answers: [
+            {option: "Noruega", correct: false},
+            {option: "Inglaterra", correct: false},
+            {option: "Finlândia", correct: false},
+            {option: "Dinamarca", correct: true},
+        ],
+        image: '<img src="../assets/imgBandeiras/DM.png" alt="Bandeira da Dinamarca">',
+        pontuacao: 3,
+    },
+    {
+        question: "Essa bandeira pertence a qual pais?",
+        answers: [
+            {option: "Dinamarca", correct: false},
+            {option: "Noruega", correct: false},
+            {option: "Escocia", correct: false},
+            {option: "Islandia", correct: true},
+        ],
+        image: '<img src="../assets/imgBandeiras/IS.png" alt="Bandeira da Inslandia">',
+        pontuacao: 3,
+    },
+    {
+        question: "Essa bandeira pertence a qual pais?",
+        answers: [
+            {option: "Russia", correct: false},
+            {option: "Holanda", correct: true},
+            {option: "Paraguai", correct: false},
+            {option: "Uruguai", correct: false},
+        ],
+        image: '<img src="../assets/imgBandeiras/HL.png" alt="Bandeira da Holanda">',
+        pontuacao: 3,
+    },
+    {
+        question: "Essa bandeira pertence a qual pais?",
+        answers: [
+            {option: "Irlanda", correct: false},
+            {option: "Italia", correct: false},
+            {option: "Chade", correct: true},
+            {option: "Costa do Marfim", correct: false},
+        ],
+        image: '<img src="../assets/imgBandeiras/CH.png" alt="Bandeira do Chade">',
         pontuacao: 5,
     }
 ];
