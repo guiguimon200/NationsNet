@@ -1,6 +1,5 @@
 var database = require("../database/config");
 
-
 function inserirPontuacao(totalPontos, idUsuario) {
     console.log("ACESSEI O QUIZ MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", totalPontos);
 
@@ -25,19 +24,6 @@ function buscarUltimasMedidas(idUsuario, limite_linhas) {
     return database.executar(instrucaoSql);
 }
 
-// function buscarUltimasMedidas(idUsuario, limite_Linhas) {
-
-//     var instrucaoSql = `SELECT 
-//                     pontuacao
-//                     FROM usuario join tentativa on fkUsuario = idUsuario
-//                     WHERE fkUsuario = ${idUsuario}  
-//                     ORDER BY idTentativa DESC LIMIT ${limite_Linhas}`;
-
-//     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-//     return database.executar(instrucaoSql);
-// }
-
-
 function buscarMedidasEmTempoReal(idUsuario) {
 
     var instrucaoSql = `SELECT 
@@ -49,22 +35,6 @@ function buscarMedidasEmTempoReal(idUsuario) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
-
-// function buscarMedidasEmTempoReal(idUsuario) {
-
-//     var instrucaoSql = `SELECT 
-//     pontuacao
-//     FROM usuario join tentativa on fkUsuario = idUsuario
-//     WHERE fkUsuario = ${idUsuario}
-//                     ORDER BY id DESC LIMIT 1`;
-
-//     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-//     return database.executar(instrucaoSql);
-// }
-
-
-
-
 
 function buscarTotalPontos(idUsuario) {
 
