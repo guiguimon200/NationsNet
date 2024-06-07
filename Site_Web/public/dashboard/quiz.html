@@ -26,7 +26,7 @@
 </head>
 
 <body >
-<!-- onload="validarSessao(), exibirAquarios(),  atualizacaoPeriodica()" -->
+
     <div class="janela">
 
         <div class="header-left dash-header">
@@ -44,21 +44,9 @@
 
             <div class="btn-nav-white">
                 <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
+                    <h3>Pontuações</h3>
                 </a>
             </div>
-
-            <div class="btn-nav-white">
-                <a href="./ranking.html">
-                    <h3>Ranking</h3>
-                </a>
-            </div>
-
-            <!-- <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Anotações</h3>
-                </a>
-            </div> -->
 
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
@@ -90,7 +78,7 @@
           <div class="finish">
             <span></span>
             <div class="ponto"></div>
-            <a href="quiz.html"><button onclick="reiniciar()">Reiniciar</button></a>
+            <a href="quiz.html"><button onclick="reiniciar()">Voltar</button></a>
           </div>
         </main>
         <div class="bandeira">
@@ -119,61 +107,3 @@
  
     
 </script>
-
-<!-- function exibirAquarios() {
-    JSON.parse(sessionStorage.AQUARIOS).forEach(item => {
-        document.getElementById("cardAquarios").innerHTML += `
-                <div class="card-aquario">
-                    <div class="title-aquario">
-                        <h1>${item.descricao}</h1>
-                    </div>
-                    <div class="desc-aquario">
-                    <div class="temperatura">
-                        <p id="temp_aquario_${item.id}">-°C</p>
-                    </div>
-                    <div class="cor-alerta" id="card_${item.id}"></div>
-                </div>
-                </div>
-                `
-    });
-} -->
-
-
-<!-- <div class="dash" id="dash">
-
-            <div class="kpis">
-                <div class="caixa">
-
-                </div>
-                <div class="caixa">
-
-                </div>
-            </div>
-
-            <div class="conteudo">
-                <div class="box_pergunta">
-                    <div class="pergunta">
-                        <h2>Pergunta 1:</h2>
-                        <span class="spnQtd"></span>
-                        <p>Essa bandeira pertence a qual pais?</p>
-                    </div>
-                    <div class="alternativas">
-                        <div class="altAB">
-                            <button onclick="validarResposta('a')" class="box_A">adghbf</button>
-                            <button onclick="validarResposta('b')" class="box_B">b</button>
-                        </div>
-
-                        <div class="altCD">
-                            <button onclick="validarResposta('c')" class="box_C">c</button>
-                            <button onclick="validarResposta('d')" class="box_D">d</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="box_imagem">
-                    <div class="imagemQuiz">
-
-                    </div>
-                </div>
-            </div>
-
-        </div> -->

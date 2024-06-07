@@ -92,14 +92,14 @@ create table tentativa (
 	foreign key (fkQuiz) references quiz (idQuiz)
 );
 
-/*create table pergunta (
+create table pergunta (
 	idPergunta int primary key auto_increment,
 	pergunta varchar(200),
 	resposta varchar(45),
 	fkPerguntaQz int,
 
 	foreign key (fkPerguntaQz) references quiz (idQuiz)
-);*/
+);
 
 create table pais (
 idPais int primary key auto_increment,

@@ -594,7 +594,7 @@ canvas {
 .hello h3 {
   color: #5D473A;
   font-weight: 300;
-  font-size: 1.2rem;
+  font-size: 22px;
 }
 
 .hello h3 span {
@@ -607,7 +607,13 @@ canvas {
   background-color: #5D473A;
   border-radius: 5px;
   text-align: center;
-  padding: 2% 5%;
+  padding: 10px;
+}
+
+.btn-nav:hover {
+  background-color: #9a897f;
+  color: #5D473A;
+  transition: 0.5s;
 }
 
 .btn-nav-white {
@@ -616,7 +622,7 @@ canvas {
   border: 3px solid #5D473A;
   border-radius: 5px;
   text-align: center;
-  padding: 2% 5%;
+  padding: 10px;
 }
 
 .btn-nav-white h3 {
@@ -643,8 +649,8 @@ canvas {
   color: white;
   border-radius: 10px;
   text-align: center;
-  padding: 10px 15px;
-  margin-bottom: 100px;
+  padding: 10px;
+  margin-top: 100px;
   cursor: pointer;
 }
 
